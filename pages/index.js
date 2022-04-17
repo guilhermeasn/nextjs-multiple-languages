@@ -1,15 +1,27 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-export default function Home() {
+import Main, { getStaticProps as getStaticPropsMain } from './[language]';
+
+export default function Home(props) {
 
     const router = useRouter();
 
     useEffect(() => {
-        const language = localStorage.getItem('language') || 'pt';
-        router.push(`/${language}`);
-    });
+        const language = localStorage.getItem('language');
+        if(language && language !== props.language) router.push(`/${language}`);
+    }, [router]);
     
-    return <></>;
+    return <Main { ...props } />;
+
+}
+
+export const getStaticProps = async () => {
+
+    return await getStaticPropsMain({
+        params: {
+            language: process.env.APP_LANGUAGE_DEFAULT
+        }
+    });
 
 }

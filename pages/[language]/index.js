@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import styles from '../../styles/Home.module.css';
 
-export default function Home({ content, languages, locale }) {
+export default function Home({ content, languages, language }) {
 
     const router = useRouter();
     
@@ -21,7 +21,7 @@ export default function Home({ content, languages, locale }) {
             </main>
 
             <footer className={styles.footer}>
-                <select value={ locale } onChange={ selected => changeLanguage(selected.target.value) } className={styles.select}>
+                <select value={ language } onChange={ selected => changeLanguage(selected.target.value) } className={styles.select}>
                     { Object.entries(languages).map(([ key, description ]) => (
                         <option key={ key } value={ key }>
                             🌐&nbsp;{ description }
@@ -51,13 +51,11 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params: { language } }) => {
 
-    console.log(language);
-
     return {
         props:{
             content: require(`../../languages/${language}.json`)['home'],
             languages: require('../../languages/locales.json'),
-            locale: language
+            language
         }
     }
 
