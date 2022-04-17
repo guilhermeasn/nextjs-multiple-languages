@@ -3,13 +3,17 @@
 }
 
 .main {
-  min-height: 100vh;
+  min-height: 75vh;
   padding: 4rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.main p {
+    font-size: 18pt;
 }
 
 .footer {
@@ -113,4 +117,9 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.select {
+    padding: 10px 15px;
+    border-radius: 10px;
 }
