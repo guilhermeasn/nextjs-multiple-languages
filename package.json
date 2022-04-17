@@ -2,11 +2,13 @@
   "name": "multilanguages",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build && next export -o docs"
   },
   "dependencies": {
     "next": "12.1.5",
