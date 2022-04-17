@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import styles from '../../styles/Home.module.css';
 
+import languages from '../../languages/config.json';
+
 export default function Home({ content, languages, language }) {
 
     const router = useRouter();
@@ -39,11 +41,9 @@ export default function Home({ content, languages, language }) {
 export const getStaticPaths = async () => {
 
     return {
-        paths:[
-            { params: { language: 'en' } },
-            { params: { language: 'es' } },
-            { params: { language: 'pt' } },
-        ],
+        paths: Object.keys(languages).map(language => ({
+            params: { language }
+        })),
         fallback: false
     }
 
@@ -54,7 +54,7 @@ export const getStaticProps = async ({ params: { language } }) => {
     return {
         props:{
             content: require(`../../languages/${language}.json`)['home'],
-            languages: require('../../languages/locales.json'),
+            languages,
             language
         }
     }
