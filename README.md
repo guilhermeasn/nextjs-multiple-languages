@@ -1,5 +1,5 @@
-# NEXT-I18-TEST
+# NEXTJS-MULTIPLE-LANGUAGES
 
 ### Testando a internacionalização no Next.JS com i18.
 
-[Resultado do teste](https://next-i18-test.vercel.app/)
+[Resultado do teste](https://nextjs-multiple-languages.vercel.app/)
