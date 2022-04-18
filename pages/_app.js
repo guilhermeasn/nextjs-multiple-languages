@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 import languages from '../languages/config.json';
 
@@ -11,8 +12,16 @@ function MyApp({ Component, pageProps }) {
     
     function changeLanguage(language) {
         const { pathname, asPath, query } = router;
+        localStorage.setItem('language', language);
         router.push({ pathname, query }, asPath, { locale: language });
     }
+
+    useEffect(() => {
+        const languageStorage = localStorage.getItem('language');
+        if(languageStorage && languageStorage != pageProps.locale) {
+            changeLanguage(languageStorage);
+        }
+    }, []);
 
     return (
         <>
