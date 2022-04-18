@@ -2,17 +2,7 @@
 
 const nextConfig = {
 
-    reactStrictMode: true,
-
-    async redirects() {
-        return [
-            {
-                source: '/',
-                destination: '/' + process.env.APP_LANGUAGE_DEFAULT,
-                permanent: true,
-            },
-        ]
-    }
+    reactStrictMode: true
 
 }
 
