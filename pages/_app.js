@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import ChangeLanguage from '../components/ChangeLanguage';
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
@@ -10,7 +11,13 @@ function MyApp({ Component, pageProps }) {
             <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <Component {...pageProps} />
+        <main>
+            <Component {...pageProps} />
+        </main>
+
+        <footer>
+            <ChangeLanguage language={ pageProps.language } />        
+        </footer>
 
     </>
   
