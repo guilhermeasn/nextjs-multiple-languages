@@ -3,6 +3,10 @@
     "home": {
         "title": "Testando internacionalização com i18",
         "body": "Olá mundo!"
+    },
+
+    "error": {
+        "http404": "Página não encontrada!"
     }
 
 }
